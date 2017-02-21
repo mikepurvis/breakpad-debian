@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+BREAKPAD_DIR=$(shell find . -name breakpad-*)
+LSS_DIR=$(shell find . -name lss-*)
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	cd $(BREAKPAD_DIR); make clean
+	rm -f $(BREAKPAD_DIR)/Makefile
+	rm -f $(BREAKPAD_DIR)/*.pc
+	rm -f $(BREAKPAD_DIR)/config.log
+	rm -f $(BREAKPAD_DIR)/config.status
+	rm -f $(BREAKPAD_DIR)/src/config.h
+	rm -f $(BREAKPAD_DIR)/src/stamp-h1
+	rm -f $(BREAKPAD_DIR)/src/third_party/lss
+
+override_dh_auto_configure:
+	ln -s ../../../$(LSS_DIR) $(BREAKPAD_DIR)/src/third_party/lss
+	cd $(BREAKPAD_DIR); ./configure --prefix=/usr
+
+override_dh_auto_build:
+	cd $(BREAKPAD_DIR); make
+
+override_dh_auto_install:
+	cd $(BREAKPAD_DIR); make install DESTDIR=../debian/breakpad-dev

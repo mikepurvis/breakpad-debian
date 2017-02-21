@@ -1,0 +1,12 @@
+Source: breakpad
+Section: unknown
+Priority: extra
+Maintainer: The Chromium OS Authors <chromium-os-dev@googlegroups.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.0
+
+Package: breakpad-dev
+Architecture: amd64
+Description: Crash-reporting system
+ Breakpad is a set of client and server components which implement a
+ crash-reporting system.
