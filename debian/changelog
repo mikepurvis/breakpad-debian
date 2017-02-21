@@ -1,3 +1,9 @@
+breakpad (20170221-2) trusty; urgency=medium
+
+  * Fix the make clean target.
+
+ -- Mike Purvis <mike@uwmike.com>  Tue, 21 Feb 2017 15:33:59 -0500
+
 breakpad (20170221-1) trusty; urgency=medium
 
   * Initial release.

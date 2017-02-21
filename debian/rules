@@ -7,7 +7,7 @@ LSS_DIR=$(shell find . -name lss-*)
 	dh $@
 
 override_dh_auto_clean:
-	cd $(BREAKPAD_DIR); make clean
+	cd $(BREAKPAD_DIR); if test -f "Makefile"; then make clean; fi
 	rm -f $(BREAKPAD_DIR)/Makefile
 	rm -f $(BREAKPAD_DIR)/*.pc
 	rm -f $(BREAKPAD_DIR)/config.log
