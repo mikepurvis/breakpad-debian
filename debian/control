@@ -1,5 +1,5 @@
 Source: breakpad
-Section: unknown
+Section: devel
 Priority: extra
 Maintainer: The Chromium OS Authors <chromium-os-dev@googlegroups.com>
 Build-Depends: debhelper (>= 7)
